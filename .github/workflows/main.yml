@@ -1,5 +1,22 @@
+name: Simple CI with Email-step
+
+on:
+workflow_dispatch: # lets you trigger manually from GitHub
+push: # also runs on any push to the repo
+branches:
+- main
+- master
+
 jobs:
-  test:
-    steps:
-      - name: 24f1002355@ds.study.iitm.ac.in
-        run: echo "Hello, world!"
+test:
+runs-on: ubuntu-latest
+
+steps:
+- name: Checkout repository
+uses: actions/checkout@v4
+
+- name: 24f1002355@ds.study.iitm.ac.in
+run: echo "Hello, world!"
+
+- name: Show date
+run: date
